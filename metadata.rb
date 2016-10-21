@@ -1,0 +1,7 @@
+name 'mac-install'
+maintainer 'The Authors'
+maintainer_email 'you@example.com'
+license 'all_rights'
+description 'Installs/Configures mac-install'
+long_description 'Installs/Configures mac-install'
+version '0.1.0'
