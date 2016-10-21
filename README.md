@@ -1,4 +1,4 @@
-# mac-install
+# brew-mac
 
-TODO: Enter the cookbook description here.
+Installs the following homebrew packages on a workstation
 

@@ -1,12 +1,12 @@
 #
-# Cookbook Name:: mac-install
+# Cookbook Name:: brew-mac
 # Spec:: default
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 require 'spec_helper'
 
-describe 'mac-install::default' do
+describe 'brew-mac::default' do
   context 'When all attributes are default, on an unspecified platform' do
     let(:chef_run) do
       runner = ChefSpec::ServerRunner.new
