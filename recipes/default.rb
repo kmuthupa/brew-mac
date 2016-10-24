@@ -19,6 +19,7 @@ homebrew_package 'jsonpp'
 homebrew_package 'tree'
 homebrew_package 'htop'
 homebrew_package 'git-extras'
+homebrew_package 'jq'
 
 # development
 homebrew_package 'vim'
