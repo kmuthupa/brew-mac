@@ -31,14 +31,23 @@ homebrew_package 'mysql'
 homebrew_package 'cask'
 homebrew_package 'cask'
 
+# install oh-my-zsh
+# https://github.com/robbyrussell/oh-my-zsh
+execute 'install oh-my-zsh' do
+  command 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+end
+
 # install ruby 2.3.0
 execute 'install ruby 2.0.0' do
   command 'rbenv install 2.0.0-p648'
   not_if 'rbenv versions | grep 2.0.0'
 end
 
-# install oh-my-zsh
-# https://github.com/robbyrussell/oh-my-zsh
-execute 'install oh-my-zsh' do
-  command 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
+# gems
+['bundler', 'rails'].each do |gem_name|
+  script "install #{gem_name}" do
+    interpreter 'bash'
+    code "gem install #{gem_name}"
+  end
 end
+
