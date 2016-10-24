@@ -30,3 +30,8 @@ homebrew_package 'mysql'
 # cask packages
 homebrew_package 'cask'
 homebrew_package 'cask'
+
+# install ruby 2.3.0
+execute 'install ruby 2.0.0' do
+  command 'rbenv install 2.0.0-p648'
+end
