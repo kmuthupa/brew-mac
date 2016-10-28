@@ -22,6 +22,7 @@
 %w(tree
    htop
    git-extras
+   httpie
    jq).each do |package|
      homebrew_package package
    end
