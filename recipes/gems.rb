@@ -11,7 +11,9 @@ execute 'install ruby 2.0.0' do
 end
 
 # gems
-['bundler', 'rails', 'pry'].each do |gem_name|
+%w[bundler
+   rails
+   pry].each do |gem_name|
   script "install #{gem_name}" do
     interpreter 'bash'
     code "gem install #{gem_name}"

@@ -6,29 +6,35 @@
 
 
 # productivity
-homebrew_package 'ack'
-homebrew_package 'archey'
-homebrew_package 'autoconf'
-homebrew_package 'autojump'
-homebrew_package 'the_silver_searcher'
-homebrew_package 'tig'
-homebrew_package 'tmux'
-homebrew_package 'jsonpp'
-homebrew_package 'git'
+%w(ack
+   archey
+   autoconf
+   autojump
+   the_silver_searcher
+   tig
+   tmux
+   jsonpp
+   git).each do |package|
+     homebrew_package package
+   end
 
 # utilities
-homebrew_package 'tree'
-homebrew_package 'htop'
-homebrew_package 'git-extras'
-homebrew_package 'jq'
+%w(tree
+   htop
+   git-extras
+   jq).each do |package|
+     homebrew_package package
+   end
 
 # development
-homebrew_package 'vim'
-homebrew_package 'rbenv'
-homebrew_package 'ruby-build'
-homebrew_package 'mysql'
+%w(vim
+   rbenv
+   ruby-build
+   mysql
+   npm).each do |package|
+     homebrew_package package
+   end
 
 # cask packages
-homebrew_package 'cask'
 homebrew_package 'cask'
 
