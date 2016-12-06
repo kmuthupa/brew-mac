@@ -23,7 +23,8 @@
    htop
    git-extras
    httpie
-   jq).each do |package|
+   jq
+   jid).each do |package|
      homebrew_package package
    end
 
