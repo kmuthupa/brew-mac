@@ -13,6 +13,9 @@
    the_silver_searcher
    tig
    tmux
+   fd
+   diff-so-fancy
+   bat
    jsonpp
    git).each do |package|
      homebrew_package package
@@ -24,6 +27,7 @@
    git-extras
    httpie
    jq
+   fzf
    jid).each do |package|
      homebrew_package package
    end
