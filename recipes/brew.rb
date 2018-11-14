@@ -27,6 +27,7 @@
    git-extras
    httpie
    jq
+   ncdu
    fzf
    jid).each do |package|
      homebrew_package package
@@ -35,6 +36,8 @@
 # development
 %w(vim
    rbenv
+   kafka
+   zookeeper
    ruby-build
    mysql
    npm).each do |package|
@@ -43,4 +46,28 @@
 
 # cask packages
 homebrew_package 'cask'
+
+# cask quick look plugins
+%w(
+   qlcolorcode 
+   qlstephen 
+   qlmarkdown 
+   quicklook-json 
+   qlprettypatch 
+   quicklook-csv 
+   betterzip 
+   webpquicklook 
+   suspicious-package
+   ).each do |package|
+     homebrew_cask package
+   end
+
+# cask applications
+%w(flux
+   cheatsheet
+   atom
+   ).each do |package|
+     homebrew_cask package
+   end
+
 

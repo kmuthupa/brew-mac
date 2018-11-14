@@ -13,7 +13,6 @@ end
 # gems
 %w[bundler
    rails
-   heroku
    pry].each do |gem_name|
   script "install #{gem_name}" do
     interpreter 'bash'
