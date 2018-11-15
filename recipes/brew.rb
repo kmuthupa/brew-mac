@@ -68,6 +68,7 @@ homebrew_tap 'caskroom/versions'
 # development
 %w(vim
    rbenv
+   maven
    kafka
    zookeeper
    ruby-build
