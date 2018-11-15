@@ -33,6 +33,37 @@
      homebrew_package package
    end
 
+# cask packages
+homebrew_package 'cask'
+
+homebrew_tap 'caskroom/versions'
+
+# cask quick look plugins
+%w(
+   qlcolorcode
+   qlstephen
+   qlmarkdown
+   quicklook-json
+   qlprettypatch
+   quicklook-csv
+   betterzip
+   webpquicklook
+   suspicious-package
+   ).each do |package|
+     homebrew_cask package
+   end
+
+# cask applications
+# TODO: get Java8 working
+%w(flux
+   cheatsheet
+   authy
+   docker
+   atom
+   ).each do |package|
+     homebrew_cask package
+   end
+
 # development
 %w(vim
    rbenv
@@ -42,32 +73,6 @@
    mysql
    npm).each do |package|
      homebrew_package package
-   end
-
-# cask packages
-homebrew_package 'cask'
-
-# cask quick look plugins
-%w(
-   qlcolorcode 
-   qlstephen 
-   qlmarkdown 
-   quicklook-json 
-   qlprettypatch 
-   quicklook-csv 
-   betterzip 
-   webpquicklook 
-   suspicious-package
-   ).each do |package|
-     homebrew_cask package
-   end
-
-# cask applications
-%w(flux
-   cheatsheet
-   atom
-   ).each do |package|
-     homebrew_cask package
    end
 
 

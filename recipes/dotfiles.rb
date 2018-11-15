@@ -10,7 +10,6 @@ tmp_dir = node['github-user']['tmp_dir']
 
 execute 'clean temporary directory' do
   command 'rm -rf ' + tmp_dir
-  only_if do File.exist?(tmp_dir) end
 end
 
 execute 'clone and copy dotfiles repository' do
