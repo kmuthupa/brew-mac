@@ -1,6 +1,6 @@
 name 'brew-mac'
 maintainer 'Karthik Muthupalaniappan'
-maintainer_email 'c.karthik.muthupalaniappan@uptake.com'
+maintainer_email 'karthik.swaminathan@gmail.com'
 license 'all_rights'
 description 'Installs/Configures a bunch of stuff on a Mac based developer machine'
 long_description 'Installs/Configures a bunch of stuff on a Mac based developer machine'

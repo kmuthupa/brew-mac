@@ -6,6 +6,7 @@
 
 # install oh-my-zsh
 # https://github.com/robbyrussell/oh-my-zsh
+
 execute 'install oh-my-zsh' do
   command 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"'
 end
@@ -29,6 +30,12 @@ end
 execute 'install sdkman' do
   command 'source "$HOME/.sdkman/bin/sdkman-init.sh"'
 end
+
+# execute 'clone and copy tpm repository' do
+  # command <<-EOC
+    # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  # EOC
+# end
 
 # install sdks
 # execute 'install sdks' do
