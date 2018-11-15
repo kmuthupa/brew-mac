@@ -9,6 +9,7 @@
 %w(ack
    archey
    autoconf
+   autoenv
    autojump
    the_silver_searcher
    tig
