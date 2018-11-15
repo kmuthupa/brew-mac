@@ -60,6 +60,14 @@ homebrew_tap 'caskroom/versions'
    cheatsheet
    authy
    docker
+   spotify
+   sequel-pro
+   postman
+   google-backup-and-sync
+   dropbox
+   duet
+   1password
+   1password-cli
    atom
    ).each do |package|
      homebrew_cask package
