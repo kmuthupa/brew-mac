@@ -37,7 +37,7 @@
 # cask packages
 homebrew_package 'cask'
 
-homebrew_tap 'caskroom/versions'
+homebrew_tap 'homebrew/cask-versions'
 
 # cask quick look plugins
 %w(
