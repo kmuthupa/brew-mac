@@ -1,0 +1,32 @@
+name: Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2.2' # Matching the version from your modernization PR
+        bundler-cache: true
+    
+    - name: Install dependencies
+      run: |
+        gem install bundler
+        bundle install
+    
+    - name: Run tests
+      run: |
+        bundle exec rspec spec/unit/recipes/default_spec.rb
+
+    - name: Run cookstyle
+      run: bundle exec cookstyle
