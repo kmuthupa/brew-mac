@@ -1,88 +1,111 @@
 #
 # Cookbook Name:: brew-mac
-# Recipe:: default
+# Recipe:: brew
 #
-# Copyright (c) 2016 Karthik Muthupalaniappan, All Rights Reserved.
+# Copyright (c) 2025 Karthik Muthupalaniappan, All Rights Reserved.
 
+# Productivity tools
+productivity_packages = %w(
+  ack
+  archey
+  autoconf
+  autoenv
+  autojump
+  the_silver_searcher
+  tig
+  tmux
+  fd
+  diff-so-fancy
+  bat
+  jq
+  git
+)
 
-# productivity
-%w(ack
-   archey
-   autoconf
-   autoenv
-   autojump
-   the_silver_searcher
-   tig
-   tmux
-   fd
-   diff-so-fancy
-   bat
-   jsonpp
-   git).each do |package|
-     homebrew_package package
-   end
+productivity_packages.each do |package|
+  homebrew_package package do
+    action :install
+  end
+end
 
-# utilities
-%w(tree
-   htop
-   git-extras
-   httpie
-   jq
-   ncdu
-   fzf
-   jid).each do |package|
-     homebrew_package package
-   end
+# Utility packages
+utility_packages = %w(
+  tree
+  htop
+  git-extras
+  httpie
+  jq
+  ncdu
+  fzf
+  jid
+)
 
-# cask packages
-homebrew_package 'cask'
+utility_packages.each do |package|
+  homebrew_package package do
+    action :install
+  end
+end
 
+# Install Homebrew Cask
+homebrew_tap 'homebrew/cask'
 homebrew_tap 'homebrew/cask-versions'
 
-# cask quick look plugins
-%w(
-   qlcolorcode
-   qlstephen
-   qlmarkdown
-   quicklook-json
-   qlprettypatch
-   quicklook-csv
-   betterzip
-   webpquicklook
-   suspicious-package
-   ).each do |package|
-     homebrew_cask package
-   end
+# QuickLook plugins
+quicklook_plugins = %w(
+  qlcolorcode
+  qlstephen
+  qlmarkdown
+  quicklook-json
+  qlprettypatch
+  quicklook-csv
+  betterzip
+  webpquicklook
+  suspicious-package
+)
 
-# cask applications
-# TODO: get Java8 working
-%w(flux
-   cheatsheet
-   authy
-   docker
-   spotify
-   sequel-pro
-   postman
-   google-backup-and-sync
-   dropbox
-   duet
-   1password
-   1password-cli
-   atom
-   ).each do |package|
-     homebrew_cask package
-   end
+quicklook_plugins.each do |plugin|
+  homebrew_cask plugin do
+    action :install
+  end
+end
 
-# development
-%w(vim
-   rbenv
-   maven
-   kafka
-   zookeeper
-   ruby-build
-   mysql
-   npm).each do |package|
-     homebrew_package package
-   end
+# Applications
+applications = %w(
+  flux
+  cheatsheet
+  authy
+  docker
+  spotify
+  sequel-pro
+  postman
+  google-backup-and-sync
+  dropbox
+  1password
+  1password-cli
+  visual-studio-code
+)
 
+applications.each do |app|
+  homebrew_cask app do
+    action :install
+  end
+end
 
+# Development tools
+dev_packages = {
+  'vim' => nil,
+  'rbenv' => nil,
+  'maven' => nil,
+  'kafka' => nil,
+  'zookeeper' => nil,
+  'ruby-build' => nil,
+  'mysql' => nil,
+  'npm' => nil,
+  'openjdk' => '@17'  # Install latest LTS Java version
+}
+
+dev_packages.each do |package, version|
+  homebrew_package package do
+    version version if version
+    action :install
+  end
+end

@@ -1,23 +1,36 @@
 #
 # Cookbook Name:: brew-mac
-# Recipe:: default
+# Recipe:: pip
 #
-# Copyright (c) 2016 Karthik Muthupalaniappan, All Rights Reserved.
+# Copyright (c) 2025 Karthik Muthupalaniappan, All Rights Reserved.
 
-
-# install pip
-execute 'install pip' do
-  user 'root'
-  command 'easy_install pip'
+# Install pip using the recommended get-pip.py method
+remote_file '/tmp/get-pip.py' do
+  source 'https://bootstrap.pypa.io/get-pip.py'
+  mode '0755'
+  action :create
+  notifies :run, 'execute[install_pip]', :immediately
 end
 
-# useful pip packages
-# %w[requests
-   # nose
-   # awscli].each do |package|
-  # script "install #{package}" do
-    # interpreter 'bash'
-    # code "pip install #{package}"
-  # end
-# end
+execute 'install_pip' do
+  command 'python3 /tmp/get-pip.py'
+  action :nothing
+end
 
+file '/tmp/get-pip.py' do
+  action :delete
+end
+
+# Install useful pip packages with version pinning
+pip_packages = {
+  'requests' => '2.31.0',
+  'nose' => '1.3.7',
+  'awscli' => '1.29.0'
+}
+
+pip_packages.each do |package, version|
+  execute "install #{package}" do
+    command "pip3 install #{package}==#{version}"
+    not_if "pip3 freeze | grep -w '^#{package}==#{version}$'"
+  end
+end
