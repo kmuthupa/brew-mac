@@ -4,11 +4,22 @@ driver:
 
 provisioner:
   name: chef_zero
+  product_name: chef
+  product_version: latest
+
+verifier:
+  name: inspec
 
 platforms:
-  - name: centos-7.1
+  # macOS platforms for Mac development machine cookbook
+  - name: macos-14
     driver:
-      box: opscode-centos-7.0
+      box: bento/macos-14
+
+  # Ubuntu for cross-platform testing
+  - name: ubuntu-24.04
+    driver:
+      box: bento/ubuntu-24.04
 
 suites:
   - name: default
