@@ -45,8 +45,8 @@ utility_packages.each do |package|
   end
 end
 
-# Install Homebrew Cask
-homebrew_tap 'homebrew/cask'
+# Note: homebrew/cask is now built-in and no longer needs to be tapped separately
+# homebrew/cask-versions provides access to older versions of cask apps if needed
 homebrew_tap 'homebrew/cask-versions'
 
 # QuickLook plugins
@@ -72,12 +72,11 @@ end
 applications = %w(
   flux
   cheatsheet
-  authy
   docker
   spotify
-  sequel-pro
+  dbeaver-community
   postman
-  google-backup-and-sync
+  google-drive
   dropbox
   1password
   1password-cli
@@ -100,7 +99,8 @@ dev_packages = {
   'ruby-build' => nil,
   'mysql' => nil,
   'npm' => nil,
-  'openjdk' => '@17'  # Install latest LTS Java version
+  'openjdk' => '@21',  # Install LTS Java version (JDK 21)
+  'awscli' => nil      # AWS CLI v2
 }
 
 dev_packages.each do |package, version|

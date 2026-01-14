@@ -5,7 +5,7 @@
 # Copyright (c) 2025 Karthik Muthupalaniappan, All Rights Reserved.
 
 # Install latest stable Ruby version
-RUBY_VERSION = '3.2.2'
+RUBY_VERSION = '3.4.6'
 
 execute "install Ruby #{RUBY_VERSION}" do
   command "rbenv install #{RUBY_VERSION}"
@@ -19,9 +19,9 @@ end
 
 # Install essential gems with version pinning
 gems = {
-  'bundler' => '~> 2.4.0',
-  'rails' => '~> 7.0.0',
-  'pry' => '~> 0.14.0'
+  'bundler' => '~> 2.7.0',
+  'rails' => '~> 8.0.0',
+  'pry' => '~> 0.16.0'
 }
 
 gems.each do |gem_name, version|
