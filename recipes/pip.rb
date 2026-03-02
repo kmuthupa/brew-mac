@@ -22,10 +22,12 @@ file '/tmp/get-pip.py' do
 end
 
 # Install useful pip packages with version pinning
+# Note: nose is deprecated - use pytest instead
+# Note: awscli v2 is recommended and should be installed via brew (awscli)
 pip_packages = {
-  'requests' => '2.31.0',
-  'nose' => '1.3.7',
-  'awscli' => '1.29.0'
+  'requests' => '2.32.5',
+  'pytest' => '8.3.4',
+  'boto3' => '1.35.0'
 }
 
 pip_packages.each do |package, version|
